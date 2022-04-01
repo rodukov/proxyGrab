@@ -1,17 +1,7 @@
 from requests import get
 from bs4 import BeautifulSoup
-from os import system
-from sys import platform
+from src.config import _blacklisted, _connection_protocol, _anonymity_type, _protocol_addons, _anonymity_addons
 
-
-cls = lambda: system("cls") if platform in ["win32", "cygwin"] else system("clear")
-cls()
-
-_blacklisted = ['IP address', 'Port', 'Country, City', '<td class="speed_col">Speed</td>', 'Type', 'Anonymity', 'Latest update']
-_connection_protocol = ["HTTP", "HTTPS", "SOCKS4", "SOCKS5"]
-_anonymity_type = ["High", "Average", "Low", "no"]
-_protocol_addons = {"HTTP": "h", "HTTPS": "s", "SOCKS4": "4", "SOCKS5": "5"} 
-_anonymity_addons = {"High": "4", "Average": "3", "Low": "2", "no": "1"}
 
 class proxyGrab:
     class hidemyname:

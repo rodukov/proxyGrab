@@ -34,6 +34,8 @@ class proxyGrab:
                         result_item["address"] = i
                     if i.isdigit(): # It's a port.
                         result_item["port"] = i
+                    if i in _anonymity_type: # This is the anonymity of the connection
+                        result_item["anonymity"] = i
                     elif "protocol" not in result_item:
                         if i in _connection_protocol: # It's protocol.
                             result_item["protocol"] = i

@@ -1,1 +1,5 @@
 beautifulsoup4
+aiohttp
+aiohttp[speedups]
+cchardet
+aiodns

@@ -1,9 +1,21 @@
+from json import loads
 from requests import get
 from bs4 import BeautifulSoup
 from src.config import _blacklisted, _connection_protocol, _anonymity_type, _protocol_addons, _anonymity_addons, headers
 
 
 class proxyGrab:
+    class geonode:
+        def request(proxies=50):
+            url = f"https://proxylist.geonode.com/api/proxy-list?limit={proxies}&page=1&sort_by=lastChecked&sort_type=desc" # Using geonode API
+            request = get(url, headers=headers)
+            return request.text
+        def sort(request) -> dict:
+            api_data = loads(request)
+            result = []
+            for i in api_data["data"]:
+                result.append({"address": i["ip"], "port": i["port"], "protocol": i["protocols"], "city": i["city"], "last_update": i["updated_at"]})
+            return result
     class free_proxy_list:
         def request():
             """This function doing request to free proxy list"""

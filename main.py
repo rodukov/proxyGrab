@@ -1,3 +1,5 @@
+from weakref import proxy
+from requests import request
 from src.proxy_grab import proxyGrab
 from src.config import cls
 
@@ -18,4 +20,9 @@ def free_proxy_list():
     request = proxyGrab.free_proxy_list.request()
     result = proxyGrab.free_proxy_list.sort(request)
     print(result)
-free_proxy_list()
+
+def geonode():
+    request = proxyGrab.geonode.request(proxies=5)
+    result = proxyGrab.geonode.sort(request)
+    print(result)
+geonode()

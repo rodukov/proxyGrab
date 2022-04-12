@@ -4,7 +4,7 @@
 | --- | --- | :---: | --- | :---: |
 | HideMyName | https://hidemy.name/en/proxy-list/ | `proxyGrab.hidemyname` | HTTP, HTTPS, SOCKS4, SOCKS5 | ✅ |
 | Free Proxy List | https://free-proxy-list.net/ | `proxyGrab.free_proxy_list` | HTTP | ✅ |
-| GeoNode | https://geonode.com/free-proxy-list/ | `soon` | HTTP, HTTPS, SOCKS4, SOCKS5 | 🟡 |
+| GeoNode | https://geonode.com/free-proxy-list/ | `proxyGrab.geonode` | HTTP, HTTPS, SOCKS4, SOCKS5 | ✅ |
 | ProxyScrape | https://proxyscrape.com/free-proxy-list | `soon` | HTTP, HTTPS, SOCKS4, SOCKS5 | 🟡 |
 | FreeProxyList | https://www.freeproxylists.net | `soon` | HTTP, HTTPS, SOCKS4, SOCKS5 | 🟡 |
 | FreeProxy | http://free-proxy.cz/en/ | `soon` | HTTP, HTTPS, SOCKS4, SOCKS5 | 🟡 |

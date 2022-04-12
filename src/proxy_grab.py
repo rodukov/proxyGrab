@@ -1,9 +1,35 @@
 from requests import get
 from bs4 import BeautifulSoup
-from src.config import _blacklisted, _connection_protocol, _anonymity_type, _protocol_addons, _anonymity_addons
+from src.config import _blacklisted, _connection_protocol, _anonymity_type, _protocol_addons, _anonymity_addons, headers
 
 
 class proxyGrab:
+    class free_proxy_list:
+        def request():
+            """This function doing request to free proxy list"""
+            url = "https://free-proxy-list.net/"
+            request = get(url, headers=headers)
+            return request
+        def sort(request) -> dict:
+            """This function using request and converts it to dict"""
+            soup = BeautifulSoup(request.text, 'html.parser')
+            all = soup.find_all('td')
+            result_item = {}
+            result = []
+            for i in all:
+                i = str(i)
+                if "<td>" in i:
+                    i = i.replace("<td>", "").replace("</td>", "") # Remove the opening and closing HTML tags <td> and </td>.
+                if i.replace(".", "").isdigit() and len(i) > 5:
+                    result_item["address"] = i
+                elif i.isdigit():
+                    result_item["port"] = i
+                else:
+                    if result_item != {}:
+                        result_item["protocol"] = "HTTP"
+                        result.append(result_item)
+                    result_item = {}
+            return result
     class hidemyname:
         def request(page: int=1):
             """This function makes a request and returns a response from the resource"""
@@ -16,7 +42,7 @@ class proxyGrab:
                 url_prefix = f"?start={str(d)}#list" # Add at once the difference of the progression
 
             url = "https://hidemy.name/en/proxy-list/" + url_prefix
-            headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'} # Be sure to add a browser header to bypass protection
+            
             request = get(url, headers=headers)
             return request
         def sort(request) -> dict:

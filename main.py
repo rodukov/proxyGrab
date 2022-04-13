@@ -25,4 +25,9 @@ def geonode():
     request = proxyGrab.geonode.request(proxies=5)
     result = proxyGrab.geonode.sort(request)
     print(result)
-geonode()
+
+def proxyscrape():
+    request = proxyGrab.proxyscrape.request(protocol="https") # http, socks4, socks5 (no support ssl in proxyGrab)
+    result = proxyGrab.proxyscrape.sort(request)
+    print(result)
+proxyscrape()

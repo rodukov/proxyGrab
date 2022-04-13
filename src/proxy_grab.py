@@ -5,6 +5,19 @@ from src.config import _blacklisted, _connection_protocol, _anonymity_type, _pro
 
 
 class proxyGrab:
+    class proxyscrape:
+        def request(protocol="http"):
+            url = f"https://api.proxyscrape.com/v2/?request=getproxies&protocol={protocol}&timeout=10000&country=all&ssl=all&anonymity=all"
+            request = get(url, headers=headers)
+            return request 
+        def sort(request) -> dict:
+            api_data = request.text
+            result = []
+            for i in api_data.split("\r\n"):
+                print(i)
+                try: result.append({"address": i.split(":")[0], "port": i.split(":")[1]})
+                except IndexError:...
+            return result
     class geonode:
         def request(proxies=50):
             url = f"https://proxylist.geonode.com/api/proxy-list?limit={proxies}&page=1&sort_by=lastChecked&sort_type=desc" # Using geonode API

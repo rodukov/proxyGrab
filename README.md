@@ -11,3 +11,4 @@
 | SpysOne | https://spys.one/ | `soon` | HTTP, HTTPS, SOCKS4, SOCKS5 | 🟡 |
 | HtmlWeb | https://htmlweb.ru/analiz/proxy_list.php | `soon` | HTTP, HTTPS, SOCKS4, SOCKS5 | 🟡 |
 | BestProxies | https://best-proxies.ru/proxylist/free/ | `soon` | HTTP, HTTPS, SOCKS4, SOCKS5 | 🟡 |
+| Proxysale | https://free.proxy-sale.com/ | `soon` | HTTP, HTTPS, SOCKS4, SOCKS5 | 🟡 |

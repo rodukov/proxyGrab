@@ -14,7 +14,6 @@ class proxyGrab:
             api_data = request.text
             result = []
             for i in api_data.split("\r\n"):
-                print(i)
                 try: result.append({"address": i.split(":")[0], "port": i.split(":")[1]})
                 except IndexError:...
             return result
